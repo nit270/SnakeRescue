@@ -6,6 +6,9 @@ import SignupPage from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard";
 import EmergencyRescueForm from "./pages/EmergencyRescueForm";
 import NotificationPage from "./pages/NotificationPage";
+import AdminPanel from "./pages/AdminPanel";
+
+
 import "./App.css";
 function App() {
   return (
@@ -17,6 +20,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/EmergencyRescueForm" element={<EmergencyRescueForm />} />
         <Route path="/notifications" element={<NotificationPage />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     
   );

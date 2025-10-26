@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "", });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
