@@ -81,6 +81,7 @@ function HomePage() {
     <div className="nav-user-section">
       {/* {User Management} */}
       <button
+      disabled={true}
         className="usr-mngt-btn"
         onClick={() => navigate("/users")}
       >
@@ -88,6 +89,7 @@ function HomePage() {
       </button>
       {/* {Admin Panel} */}
       <button
+      disabled={true}
         className="admin-btn"
         onClick={() => navigate("/admin")}
       >
