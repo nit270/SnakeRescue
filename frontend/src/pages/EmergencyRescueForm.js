@@ -64,7 +64,7 @@ function EmergencyRescueForm() {
         <span className="bar-icon">&#9888;</span>
         <span className="bar-title">Emergency Rescue</span>
         <span className="bar-sub">24/7 Snake Rescue Service</span>
-        <Link to="/">
+        <Link to="#" onClick={() => navigate(-1)}>
           <button className="bar-back">&#8592; Back</button>
         </Link>
       </div>
