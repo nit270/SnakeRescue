@@ -15,6 +15,23 @@ const [current, setCurrent] = useState(0);
   const [fade, setFade] = useState(true);
   const [paused, setPaused] = useState(false);
   const timeoutRef = useRef(null);
+  const [stats, setStats] = useState({ total: 0, pending: 0, inProgress: 0, completed: 0 });
+
+   useEffect(() => {
+      fetchStatistics();
+    }, []);
+
+    const fetchStatistics = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/rescue/statistics');
+      const data = await response.json();
+      if (response.ok) {
+        setStats(data);
+      }
+    } catch (err) {
+      console.error('Error fetching statistics:', err);
+    }
+  };
 
   const nextSlide = () => {
     setFade(false);
@@ -80,6 +97,40 @@ const [current, setCurrent] = useState(0);
         </div>
       </section>
 
+       <section>
+        {/* Statistics Cards */}
+      <div className="stats-container">
+        <div className="stat-card total">
+          <div className="stat-icon">📊</div>
+          <div className="stat-content">
+            <h3>{stats.total}</h3>
+            <p>Total Requests</p>
+          </div>
+        </div>
+        <div className="stat-card pending">
+          <div className="stat-icon">⏳</div>
+          <div className="stat-content">
+            <h3>{stats.pending}</h3>
+            <p>Pending</p>
+          </div>
+        </div>
+        <div className="stat-card progress">
+          <div className="stat-icon">🚀</div>
+          <div className="stat-content">
+            <h3>{stats.inProgress}</h3>
+            <p>In Progress</p>
+          </div>
+        </div>
+        <div className="stat-card completed">
+          <div className="stat-icon">✅</div>
+          <div className="stat-content">
+            <h3>{stats.completed}</h3>
+            <p>Completed</p>
+          </div>
+        </div>
+      </div>
+
+       </section>
       {/* Popup Form */}
        {/* {  Slider  } */}
       <section>  
