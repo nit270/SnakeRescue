@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import EmergencyRescueForm from "./pages/EmergencyRescueForm";
 import NotificationPage from "./pages/NotificationPage";
 import AdminPanel from "./pages/AdminPanel";
-
+import UserManagement from "./pages/UserManagement"
 
 import "./App.css";
 function App() {
@@ -21,6 +21,8 @@ function App() {
         <Route path="/EmergencyRescueForm" element={<EmergencyRescueForm />} />
         <Route path="/notifications" element={<NotificationPage />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/users" element={<UserManagement />} />
+
       </Routes>
     
   );

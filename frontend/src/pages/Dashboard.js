@@ -79,8 +79,17 @@ function HomePage() {
 
   {user.email==="admin@gmail.com" ? (
     <div className="nav-user-section">
+      {/* {User Management} */}
+      <button
+        disabled={true}
+        className="usr-mngt-btn"
+        onClick={() => navigate("/users")}
+      >
+        User Management
+      </button>
       {/* {Admin Panel} */}
       <button
+        disabled={true}
         className="admin-btn"
         onClick={() => navigate("/admin")}
       >
