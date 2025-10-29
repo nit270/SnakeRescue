@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import "./App.css";
 
 function EmergencyRescueForm() {
@@ -12,6 +12,9 @@ function EmergencyRescueForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,9 +23,11 @@ function EmergencyRescueForm() {
   // ✅ Submit to backend API
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/emergencyRoutes/emergency", {
+      const response = await fetch("http://localhost:5000/api/rescue/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form), // ✅ Correct variable
@@ -47,6 +52,8 @@ function EmergencyRescueForm() {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("⚠️ Server error! Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -137,12 +144,11 @@ function EmergencyRescueForm() {
           />
         </label>
 
-        <button type="submit" className="emg-submit-btn">
-          &#9888; SUBMIT EMERGENCY REQUEST
+        <button type="submit" className="emg-submit-btn" disabled={loading}>
+          {loading ? "Submitting..." : "⚠ SUBMIT EMERGENCY REQUEST"}
         </button>
-
         {submitted && (
-          <div className="emg-success">✅ Request submitted successfully!</div>
+          <div className="emg-success">Request submitted successfully! Redirecting...</div>
         )}
       </form>
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function SignupPage() {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
     phone: "",
     role: "Customer",
@@ -36,7 +36,7 @@ function SignupPage() {
       if (response.ok) {
         alert("Account created successfully!");
         setFormData({
-          name: "",
+          fullName: "",
           email: "",
           phone: "",
           role: "Customer",
@@ -67,9 +67,9 @@ function SignupPage() {
           <input
             className="auth-input"
             type="text"
-            name="name"
+            name="fullName"
             placeholder="Enter your full name"
-            value={formData.name}
+            value={formData.fullName}
             onChange={handleChange}
             required
           />

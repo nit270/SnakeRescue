@@ -55,7 +55,7 @@ function HomePage() {
       }, []);
     
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({ email: "", password: "", });
 
   useEffect(() => {
     // Check if user exists in localStorage
@@ -77,8 +77,24 @@ function HomePage() {
       <header className="navbar">
   <div className="navbar-brand">Snake Rescue Team</div>
 
-  {user ? (
+  {user.email==="admin@gmail.com" ? (
     <div className="nav-user-section">
+      {/* {User Management} */}
+      <button
+      disabled={true}
+        className="usr-mngt-btn"
+        onClick={() => navigate("/users")}
+      >
+        User Management
+      </button>
+      {/* {Admin Panel} */}
+      <button
+      disabled={true}
+        className="admin-btn"
+        onClick={() => navigate("/admin")}
+      >
+        Admin Panel
+      </button>
       {/* Rescue Notification Button */}
       <button
         className="notification-btn"
@@ -90,7 +106,7 @@ function HomePage() {
       {/* User Info */}
       <div className="user-info">
         <div className="user-icon">👤</div>
-        <span className="user-name">{user.name}</span>
+        <span className="user-name">{user.fullName}</span>
       </div>
 
       <button className="logout-btn" onClick={handleLogout}>
@@ -98,13 +114,17 @@ function HomePage() {
       </button>
     </div>
   ) : (
-    <div className="nav-buttons">
-      <Link to="/login">
-        <button className="login-btn">Login</button>
-      </Link>
-      <Link to="/signup">
-        <button className="getstarted-btn">Get Started</button>
-      </Link>
+    <div className="nav-user-section">
+   
+      {/* User Info */}
+      <div className="user-info">
+        <div className="user-icon">👤</div>
+        <span className="user-name">{user.fullName}</span>
+      </div>
+
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   )}
 </header>
