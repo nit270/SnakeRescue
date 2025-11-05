@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 function SignupPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -43,6 +45,7 @@ function SignupPage() {
           password: "",
           confirmPassword: "",
         });
+        navigate("/login"); // Redirect to your login page
       } else {
         alert(result.message || "Signup failed!");
       }

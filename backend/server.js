@@ -15,7 +15,6 @@ app.use(cors());
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/emergencyRoutes', require('./routes/emergencyRoutes'));
 app.use('/api/rescue', require('./routes/rescueRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 
