@@ -16,7 +16,7 @@ function AdminPanel() {
 
   const fetchRequests = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/rescue/all');
+      const response = await fetch(process.env.REACT_APP_API_URL+'/rescue/all');
       const data = await response.json();
       if (response.ok) {
         setRequests(data);
@@ -30,7 +30,7 @@ function AdminPanel() {
 
   const fetchStatistics = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/rescue/statistics');
+      const response = await fetch(process.env.REACT_APP_API_URL+'/rescue/statistics');
       const data = await response.json();
       if (response.ok) {
         setStats(data);
@@ -42,7 +42,7 @@ function AdminPanel() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/rescue/update/${id}`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/rescue/update/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -61,7 +61,7 @@ function AdminPanel() {
     if (!window.confirm('Are you sure you want to delete this request?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/rescue/delete/${id}`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/rescue/delete/${id}`, {
         method: 'DELETE'
       });
 

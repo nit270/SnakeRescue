@@ -23,7 +23,7 @@ const [current, setCurrent] = useState(0);
 
     const fetchStatistics = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/rescue/statistics');
+      const response = await fetch(process.env.REACT_APP_API_URL+'/rescue/statistics');
       const data = await response.json();
       if (response.ok) {
         setStats(data);

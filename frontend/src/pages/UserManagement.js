@@ -23,7 +23,7 @@ function UserManagement() {
   }, [search]);
 
   const fetchUsers = async () => {
-    let url = `http://localhost:5000/api/users?search=${encodeURIComponent(search)}`;
+    let url = process.env.REACT_APP_API_URL+`/users?search=${encodeURIComponent(search)}`;
     const res = await fetch(url);
     const data = await res.json();
     setUsers(data);
@@ -41,10 +41,10 @@ function UserManagement() {
     try {
       let url, method;
       if (editingId) {
-        url = `http://localhost:5000/api/users/update/${editingId}`;
+        url = process.env.REACT_APP_API_URL+`/users/update/${editingId}`;
         method = "PUT";
       } else {
-        url = "http://localhost:5000/api/users/add";
+        url = process.env.REACT_APP_API_URL+"/users/add";
         method = "POST";
       }
       const res = await fetch(url, {
@@ -73,7 +73,7 @@ function UserManagement() {
 
   const handleDelete = async id => {
     if (!window.confirm("Delete user?")) return;
-    await fetch(`http://localhost:5000/api/users/delete/${id}`, { method: "DELETE" });
+    await fetch(process.env.REACT_APP_API_URL+`/users/delete/${id}`, { method: "DELETE" });
     fetchUsers();
   };
 
