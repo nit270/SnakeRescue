@@ -13,7 +13,7 @@ function NotificationPage() {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/rescue/all');
+      const response = await fetch(process.env.REACT_APP_API_URL+'/rescue/all');
       const data = await response.json();
 
       if (response.ok) {
