@@ -89,6 +89,8 @@ const [current, setCurrent] = useState(0);
           Professional snake rescue services with 24/7 emergency response.<br />
           Protecting communities through safe snake removal and wildlife conservation.
         </p>
+         <button  className="emergency-btn">+91 9031708006</button>
+              <p></p>
        <Link to="/EmergencyRescueForm"> <button className="emergency-btn">
           Emergency Snake Rescue
         </button></Link>
@@ -259,7 +261,7 @@ const [current, setCurrent] = useState(0);
           </div>
           <div>
             <h4>Quick Links</h4>
-            <div>Facebook</div>
+            <div><Link to="https://www.facebook.com/share/1FW6Dvx6eS/">Facebook</Link></div>
             <div>Advisory Services</div>
           </div>
           <div>
@@ -271,13 +273,13 @@ const [current, setCurrent] = useState(0);
           </div>
           <div>
             <h4>Contact Info</h4>
-            <div>+91 87965-41210</div>
-            <div>snake@rescue.com</div>
+            <div>+91 9031708006</div>
+            <div>snakerescuejsr555@gmail.com</div>
             <div>Jamshedpur, Jharkhand</div>
           </div>
         </div>
         <div className="footer-bottom">
-          © 2025 Snake Rescue Team | All Rights Reserved
+          © 2025 Snake Rescue Team Jamshedpur | All Rights Reserved
         </div>
       </footer>
     </div>

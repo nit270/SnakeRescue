@@ -80,14 +80,14 @@ function HomePage() {
   {user.email==="admin@gmail.com" ? (
     <div className="nav-user-section">
       {/* {User Management} */}
-      <button
+      <button disabled={true}
         className="usr-mngt-btn"
         onClick={() => navigate("/users")}
       >
         User Management
       </button>
       {/* {Admin Panel} */}
-      <button
+      <button disabled={true}
         className="admin-btn"
         onClick={() => navigate("/admin")}
       >
@@ -135,6 +135,8 @@ function HomePage() {
                 Professional snake rescue services with 24/7 emergency response.<br />
                 Protecting communities through safe snake removal and wildlife conservation.
               </p>
+              <button  className="emergency-btn">+91 9031708006</button>
+              <p></p>
              <Link to="/EmergencyRescueForm"> <button className="emergency-btn">
                 Emergency Snake Rescue
               </button></Link>
