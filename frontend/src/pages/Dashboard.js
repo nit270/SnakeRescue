@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import img1 from "../assets/image1.jpg";
+import img1 from "../assets/image1.jpeg";
 import img2 from "../assets/image2.jpg";
 import img3 from "../assets/image3.jpg";
 import img4 from "../assets/image4.jpg";
