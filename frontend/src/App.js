@@ -8,8 +8,10 @@ import EmergencyRescueForm from "./pages/EmergencyRescueForm";
 import NotificationPage from "./pages/NotificationPage";
 import AdminPanel from "./pages/AdminPanel";
 import UserManagement from "./pages/UserManagement"
+import DonatePage from './pages/Donate';
 
 import "./App.css";
+import Donate from "./pages/Donate";
 function App() {
   return (
     
@@ -22,7 +24,7 @@ function App() {
         <Route path="/notifications" element={<NotificationPage />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/users" element={<UserManagement />} />
-
+          <Route path="/donate" element={<Donate />} />
       </Routes>
     
   );
