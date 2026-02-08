@@ -131,6 +131,11 @@ function SignupPage() {
           <Link className="auth-link" to="/login">
             Sign in here
           </Link>
+           <div className="auth-home-link">
+                                   <Link className="auth-link" to="/">
+                                     ← Back to Home
+                                   </Link>
+                                 </div>
         </div>
       </div>
     </div>

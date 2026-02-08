@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import "./donate.css";
 // Assuming you have an image file named qr-code-1.png and qr-code-2.png
 // or you use a specific path to your uploaded QR codes.
 // Replace the image source paths below with your actual paths.
+import img from "../assets/qr-image.jpg";
 
 const DonatePage = () => {
     return (
@@ -42,27 +44,15 @@ const DonatePage = () => {
                         <h4>Option 1: Preferred UPI</h4>
                         <div className="qr-code-display">
                             {/* REPLACE THIS WITH YOUR QR CODE IMAGE PATH */}
-                            <img src="/path/to/your/qr-code-1.png" alt="UPI QR Code 1" />
+                            <img src={img} alt="UPI QR Code 1" />
                         </div>
                         <p className="upi-id-text">
-                            UPI ID: <span className="upi-id-highlight">**yourUPIID@bankname**</span>
+                            UPI ID: <span className="upi-id-highlight">**pathak.chandan91308@okicici**</span>
                         </p>
                     </div>
 
 
-                    {/* QR Code 2 Card - Uses the dedicated card class */}
-                    <div className="donation-card">
-                        <h4>Option 2: Alternative UPI</h4>
-                        <div className="qr-code-display">
-                            {/* REPLACE THIS WITH YOUR SECOND QR CODE IMAGE PATH */}
-                            <img src="/path/to/your/qr-code-2.png" alt="UPI QR Code 2" />
-                        </div>
-                        <p className="upi-id-text">
-                            UPI ID: <span className="upi-id-highlight">**yourOtherUPIID@bankname**</span>
-                        </p>
-                    </div>
                 </div>
-
                 {/* Impact Section */}
                 <h3>
                     Where Your Funds Go
@@ -75,6 +65,11 @@ const DonatePage = () => {
                 <p className="thank-you-message">
                     Thank you for being a lifeline for wildlife!
                 </p>
+               <div className="auth-home-link">
+                         <Link className="auth-link" to="/">
+                           ← Back to Home
+                         </Link>
+                       </div>
             </div>
         </div>
     );
